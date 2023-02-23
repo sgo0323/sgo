@@ -1,0 +1,61 @@
+// Colors
+$color_primary          :#8E43F0;
+$color_secondary        :#FD6956;
+$color_tertiary         :#222222;
+
+$color_negative         :#EF2B2A;
+$color_warning          :#F1A819;
+$color_positive         :#4659FF;
+$color_neutral          :#70B6C1;
+$color_disable          :#E0E0E0;
+
+// Typography
+$font_family_sans-serif : 'Roboto', 'Noto Sans KR', sans-serif !default;
+$font_family_serif      : 'Baskerville', "Nanum Myeongjo", serif !default;
+$font_family_base       : $font_family_sans-serif !default;
+
+
+
+$color_black            :#000;
+$color_white            :#fff;
+$color_gray_900         :#222;
+$color_gray_800         :#424242;
+$color_gray_700         :#616161;
+$color_gray_600         :#8E8E8E;
+$color_gray_500         :#BDBDBD;
+$color_gray_400         :#E0E0E0;
+$color_gray_300         :#EDEDED;
+$color_gray_200         :#F7F7F7;
+$color_gray_100         :#FAFAFA;
+
+
+// Font Sizes
+$font_size_base         : 16px !default;
+$font_size_large        : ceil(($font_size_base * 1.12)) !default; // ~18px
+$font_size_small        : ceil(($font_size_base * .87)) !default; // ~14px
+
+$font_size_h1           : floor(($font_size_base * 2)) !default; // ~32px
+$font_size_h2           : floor(($font_size_base * 1.5)) !default; // ~24px
+$font_size_h3           : ceil(($font_size_base * 1.37)) !default; // ~22px
+$font_size_h4           : ceil(($font_size_base * 1.25)) !default; // ~20px
+$font_size_h5           : $font_size_base !default;
+$font_size_h6           : ceil(($font_size_base * .87)) !default; // ~14px
+
+$font_size_b1           : ceil(($font_size_base * 1.12)) !default; // ~18px
+$font_size_b2           : ceil(($font_size_base * 1.06)) !default; // ~17px
+$font_size_b3           : $font_size_base !default;
+
+$font_size_caption1     : ceil(($font_size_base * .87)) !default; // ~14px
+$font_size_caption2     : floor(($font_size_base * .75)) !default; // ~12px
+
+
+// Media Query Break Point
+$desktop_wide_width     : 2500px;
+$desktop_full_width     : 1920px;
+$desktop_l_width        : 1400px;
+$desktop_s_width        : 1200px;
+$tablet_l_width         : 1024px;
+$tablet_s_width         : 768px;
+$mobile_l_width         : 480px;
+$mobile_m_width         : 375px;
+$mobile_s_width         : 320px;
