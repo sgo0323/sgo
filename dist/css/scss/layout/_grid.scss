@@ -1,0 +1,118 @@
+$grid_columns : 12;
+
+.row:after {
+    content: '';
+    display: block;
+    clear:both;
+}
+
+@mixin make_grid_columns($i: 1, $list: ".col_md_#{$i}, .col_lg_#{$i}, .col_xl_#{$i}, .col_wide_#{$i}") {
+    @for $i from ($i + 1) through $grid_columns {
+        $list: "#{$list}, .col_md_#{$i}, .col_lg_#{$i}, .col_xl_#{$i}, .col_wide_#{$i}";
+    }
+    #{$list} {
+        position: relative;
+        min-height: 1px;
+    }
+}
+
+@mixin float_grid_columns($size, $i: 1, $list: ".col_#{$size}_#{$i}") {
+    @for $i from ($i + 1) through $grid_columns {
+        $list: "#{$list}, .col_#{$size}_#{$i}";
+    }
+    #{$list} {
+        float: left;
+    }
+}
+
+@mixin calc_grid_columns($index, $class, $type) {
+    @if ($type == width) and ($index > 0) {
+        .col_#{$class}_#{$index} {
+            width: percentage(($index / $grid_columns));
+        }
+    }
+    @if ($type == push) and ($index > 0) {
+        .col_#{$class}_push_#{$index} {
+            left: percentage(($index / $grid_columns));
+        }
+    }
+    @if ($type == push) and ($index == 0) {
+        .col_#{$class}_push_0 {
+            left: auto;
+        }
+    }
+    @if ($type == pull) and ($index > 0) {
+        .col_#{$class}_pull_#{$index} {
+            right: percentage(($index / $grid_columns));
+        }
+    }
+    @if ($type == pull) and ($index == 0) {
+        .col_#{$class}_pull_0 {
+            right: auto;
+        }
+    }
+    @if ($type == offset) {
+        .col_#{$class}_offset_#{$index} {
+            margin-left: percentage(($index / $grid_columns));
+        }
+    }
+}
+
+@mixin loop_grid_columns($columns, $class, $type) {
+    @for $i from 0 through $columns {
+        @include calc_grid_columns($i, $class, $type);
+    }
+}
+
+// grid_columns 생성
+@include make_grid_columns;
+
+// Extra Large grid 
+@mixin make_grid($class) {
+    @include float_grid_columns($class);
+    @include loop_grid_columns($grid_columns, $class, width);
+    @include loop_grid_columns($grid_columns, $class, pull);
+    @include loop_grid_columns($grid_columns, $class, push);
+    @include loop_grid_columns($grid_columns, $class, offset);
+}
+
+// Extra Large grid (default 1200px ~ 1920px)
+@include make_grid(xl);
+
+@include pc_wide {
+    // Wide grid (1921px ~ )
+    @include make_grid(wide);
+}
+
+@include pc_min {
+    // Large grid (769px ~ 1199px)
+    @include make_grid(lg);
+}
+
+@include tablet {
+    // medium grid (481px ~ 768px)
+    @include make_grid(md);
+}
+
+@include mobile {
+    // small grid ( ~ 480px)
+    // 모바일은 그리드 컬럼을 6개 축소하기 때문에 재정의
+    $grid_columns : 6;
+
+    $ii : 1;
+    $sm_list : ".col_sm_#{$ii}";
+
+    @for $ii from ($ii + 1) through $grid_columns {
+        $sm_list: "#{$sm_list}, .col_sm_#{$ii}";
+    }
+    #{$sm_list} {
+        float: left;
+        position: relative;
+        min-height: 1px;
+    }
+
+    @include loop_grid_columns($grid_columns, sm, width);
+    @include loop_grid_columns($grid_columns, sm, pull);
+    @include loop_grid_columns($grid_columns, sm, push);
+    @include loop_grid_columns($grid_columns, sm, offset);
+}

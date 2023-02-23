@@ -1,0 +1,382 @@
+$default_text : $color_white;
+
+.btn {
+    display: inline-block;
+    line-height: 1.5rem;
+    font-family: $font_family_base;
+    font-size: .875rem;
+    padding: .25rem .875rem;
+    margin: 0 .125rem;
+    border: 1px solid transparent;
+    @include border-radius(3px);
+    @include transition_All();
+
+    &[disabled], 
+    &.disabled,
+    &:disabled {
+        pointer-events: none;
+        opacity: .65;
+    }
+
+    &.shadow {
+        @include box-shadow(1px 1px 2px rgba(0,0,0,.15));
+    }
+
+    &_primary {
+        background: $color_primary;
+        border-color: $color_primary;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_primary, 12%);
+            border-color: darken($color_primary, 12%);
+        }
+
+        &_out {
+            border-color: $color_primary;
+            color: $color_primary;
+
+            &:hover {
+                background: $color_primary;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_secondary {
+        background: $color_secondary;
+        border-color: $color_secondary;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_secondary, 12%);
+            border-color: darken($color_secondary, 12%);
+        }
+        
+        &_out {
+            border-color: $color_secondary;
+            color: $color_secondary;
+
+            &:hover {
+                background: $color_secondary;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_tertiary {
+        background: $color_tertiary;
+        border-color: $color_tertiary;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_tertiary, 12%);
+            border-color: darken($color_tertiary, 12%);
+        }
+        
+        &_out {
+            border-color: $color_tertiary;
+            color: $color_tertiary;
+
+            &:hover {
+                background: $color_tertiary;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_grayish {
+        background: $color_gray_600;
+        border-color: $color_gray_500;
+        color: $color_gray_300;
+
+        &:hover {
+            background: darken($color_gray_600, 12%);
+            border-color: darken($color_gray_500, 12%);
+        }
+
+        &_out {
+            border-color: $color_gray_600;
+            color: $color_gray_300;
+
+            &:hover {
+                background: $color_gray_600;
+                color: $color_gray_300;
+            }
+        }
+    }
+
+    &_positive {
+        background: $color_positive;
+        border-color: $color_positive;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_positive, 12%);
+            border-color: darken($color_positive, 12%);
+        }
+        
+        &_out {
+            border-color: $color_positive;
+            color: $color_positive;
+
+            &:hover {
+                background: $color_positive;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_negative {
+        background: $color_negative;
+        border-color: $color_negative;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_negative, 12%);
+            border-color: darken($color_negative, 12%);
+        }
+        
+        &_out {
+            border-color: $color_negative;
+            color: $color_negative;
+
+            &:hover {
+                background: $color_negative;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_warning {
+        background: $color_warning;
+        border-color: $color_warning;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_warning, 12%);
+            border-color: darken($color_warning, 12%);
+        }
+        
+        &_out {
+            border-color: $color_warning;
+            color: $color_warning;
+
+            &:hover {
+                background: $color_warning;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_neutral {
+        background: $color_neutral;
+        border-color: $color_neutral;
+        color: $default_text;
+
+        &:hover {
+            background: darken($color_neutral, 12%);
+            border-color: darken($color_neutral, 12%);
+        }
+        
+        &_out {
+            border-color: $color_neutral;
+            color: $color_neutral;
+
+            &:hover {
+                background: $color_neutral;
+                color: $default_text;
+            }
+        }
+    }
+
+    &_light {
+        background: $color_gray_200;
+        border-color: $color_gray_200;
+        color: $color_gray_900;
+
+        &:hover {
+            background: darken($color_gray_200, 12%);
+            border-color: darken($color_gray_200, 12%);
+        }
+        
+        &_out {
+            border-color: $color_gray_200;
+            color: $color_gray_200;
+
+            &:hover {
+                background: $color_gray_200;
+                color: $color_gray_900;
+            }
+        }
+    }
+
+    &_dark {
+        background: $color_gray_900;
+        border-color: $color_gray_900;
+        color: $color_gray_200;
+
+        &:hover {
+            background: darken($color_gray_900, 12%);
+            border-color: darken($color_gray_900, 12%);
+        }
+        
+        &_out {
+            border-color: $color_gray_900;
+            color: $color_gray_900;
+
+            &:hover {
+                background: $color_gray_900;
+                color: $color_gray_200;
+            }
+        }
+    }
+
+    /* Sizes */
+    &_lg {
+        padding: .625rem 2rem;
+        font-size: 1rem;
+    }
+
+    &_sm {
+        padding: .125rem .625rem;
+        line-height: 1.25rem;
+        font-size: .75rem;
+    }
+
+    /* button area */
+    &__area {
+        font-size: 0;
+
+        &.center {
+            text-align: center;
+        }
+
+        &.right {
+            text-align: right;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+
+    &_full {
+        display: block;
+        width: 100%;
+        margin: .25rem 0;
+    }
+
+    &_half {
+        float: left; 
+        width: 50%;
+        margin: 0;
+        @include border-radius(0);
+    }
+
+    // rounded button
+    &.round {
+        @include border-radius(2.5rem);
+    }
+}
+
+// text button
+.btn[class*="text_"] {
+    padding: .25rem .5rem;
+    font-weight: 500;
+}
+
+.text {
+    &_primary {
+        color: $color_primary;
+
+        &:hover {
+            color: darken($color_primary, 12%);
+        }
+    }
+
+    &_secondary {
+        color: $color_secondary;
+        
+        &:hover {
+            color: darken($color_secondary, 12%);
+        }
+    }
+    
+    &_tertiary {
+        color: $color_tertiary;
+        
+        &:hover {
+            color: darken($color_tertiary, 12%);
+        }
+    }
+
+    &_positive {
+        color: $color_positive; 
+        
+        &:hover {
+            color: darken($color_positive, 12%);
+        }
+    }
+
+    &_negative {
+        color: $color_negative; 
+        
+        &:hover {
+            color: darken($color_negative, 12%);
+        }
+    }
+
+    &_warning {
+        color: $color_warning; 
+        
+        &:hover {
+            color: darken($color_warning, 12%);
+        }
+    }
+
+    &_neutral {
+        color: $color_neutral; 
+        
+        &:hover {
+            color: darken($color_neutral, 12%);
+        }
+    }
+
+    &_light {
+        color: $color_gray_200; 
+        
+        &:hover {
+            color: darken($color_gray_200, 12%);
+        }
+    }
+
+    &_dark {
+        color: $color_gray_900; 
+        
+        &:hover {
+            color: darken($color_gray_900, 12%);
+        }
+    }
+    
+    &_grayish {
+        color: $color_gray_300; 
+        
+        &:hover {
+            color: darken($color_gray_300, 12%);
+        }
+    }
+}
+
+
+@include mobile {
+    .btn {
+        line-height: 1.25rem;
+        font-size: .75rem;
+        padding: .125rem .625rem;
+        @include border-radius(2px);
+    }
+
+}

@@ -1,0 +1,194 @@
+/*
+* border-radius 
+*/
+@mixin border-radius($radius) {
+    -webkit-border-radius:$radius;
+    -moz-border-radius:$radius;
+    -ms-border-radius:$radius;
+    -o-border-radius:$radius;
+    border-radius:$radius;
+}
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin animation($ani...) {
+    -webkit-animation:$ani;
+    -moz-animation:$ani;
+    -o-animation:$ani;
+    animation:$ani;
+}
+
+@mixin blind {
+    position:absolute; 
+    width: 0;
+    height: 0;
+    font-size: 0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+@mixin text_blind {
+    font-size: $font_size_small;
+    text-indent:-9999px;
+    visibility: hidden;
+}
+
+@mixin image_center {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+/*
+* text-ellipsis 한 줄 말줄임
+* @include text-ellipsis;
+*/
+@mixin text-ellipsis() {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+/*
+* text-ellipsisClamp 여러 줄 말줄임
+* @include text-ellipsisClamp(2, 24px);
+*/
+@mixin text-ellipsisClamp($line, $line-height) {
+    display: -webkit-box;
+    max-height: $line * $line-height;
+    line-height:$line-height;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -wekbit-line-clamp: $line;
+    word-wrap:break-word;
+}
+
+/*
+* scale
+* @include scale(1.05, 1.05);
+*/
+@mixin scale($scale_x, $scale_y) {
+    -webkit-transform: scale($scale_x, $scale_y);
+    -moz-transform: scale($scale_x, $scale_y);
+    -ms-transform: scale($scale_x, $scale_y);
+    -o-transform: scale($scale_x, $scale_y);
+    transform: scale($scale_x, $scale_y);
+}
+
+@mixin transition_All() {
+    -webkit-transition:all cubic-bezier(.56,.56,.6,1.02) .25s;
+    -moz-transition:all cubic-bezier(.56,.56,.6,1.02) .25s;
+    -ms-transition:all cubic-bezier(.56,.56,.6,1.02) .25s;
+    -o-transition:all cubic-bezier(.56,.56,.6,1.02) .25s;
+    transition:all cubic-bezier(.56,.56,.6,1.02) .25s;
+}
+
+@mixin transition($transition...) {
+    transition:$transition;
+}
+
+@mixin transform($transform...) {
+    -webkit-transform:$transform;
+    -moz-transform:$transform;
+    -ms-transform:$transform;
+    -o-transform:$transform;
+    transform:$transform;
+}
+
+/* Media Query */
+
+// 2500px PC Wide
+@mixin pc_wide {
+    @media screen and (min-width:$desktop_full_width + 1) {
+        @content;
+    }
+}
+
+// 1920px PC Full
+@mixin pc_full {
+    @media screen and (max-width:$desktop_full_width) {
+        @content;
+    }
+}
+
+// 1400px PC Size Large
+@mixin pc_size_l {
+    @media screen and (max-width:$desktop_l_width) {
+        @content;
+    }
+}
+
+// 1200px PC Size Small
+@mixin pc_size_s {
+    @media screen and (max-width:$desktop_s_width) {
+        @content;
+    }
+}
+
+// 1024px Tablet
+@mixin tablet_l {
+    @media screen and (max-width:$tablet_l_width) {
+        @content;
+    }
+}
+
+// 768px Tablet
+@mixin tablet_s {
+    @media screen and (max-width:$tablet_s_width) {
+        @content;
+    }
+}
+
+// 479px Mobile
+@mixin mobile_l {
+    @media screen and (max-width:$mobile_l_width - 1) {
+        @content;
+    }
+}
+
+// 375px Mobile
+@mixin mobile_m {
+    @media screen and (max-width:$mobile_m_width) {
+        @content;
+    }
+}
+
+// 320px Mobile
+@mixin mobile_s {
+    @media screen and (max-width:$mobile_s_width) {
+        @content;
+    }
+}
+
+
+/* grid */
+// PC_min
+@mixin pc_min {
+    @media screen and (max-width:$desktop_s_width - 1) {
+        @content;
+    }
+}
+// Tablet
+@mixin tablet {
+    @media screen and (max-width:$tablet_s_width) {
+        @content;
+    }
+}
+// Mobile
+@mixin mobile {
+    @media screen and (max-width:$mobile_l_width) {
+        @content;
+    }
+}
